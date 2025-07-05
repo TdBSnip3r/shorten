@@ -1,9 +1,10 @@
-import HomeLayout from "@/components/layout/HomeLayout";
+import HomeLayout from "@/components/layout/CenterdLayout";
+import { ShortWidget } from "@/components/ShortWidget/ShortWidget";
 
 export default function Home() {
   return (
     <HomeLayout>
-      <p>Ciao</p>
+      <ShortWidget />
     </HomeLayout>
   );
 }

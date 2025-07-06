@@ -1,12 +1,12 @@
 'use client'
-import useWindowDimensions from '@/hooks/WindowsDimensionHook'
 import HeaderDesktop from './HeaderDesktop'
 import HeaderMobile from './HeaderMobile'
+import { useWindowSize } from "@uidotdev/usehooks";
 
 export default function Header() {
-  const { width } = useWindowDimensions()
+  const size = useWindowSize();
 
-  if (width < 768) {
+  if (size && size.width && size.width < 768) {
     return <HeaderMobile />
   }
 

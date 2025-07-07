@@ -1,10 +1,10 @@
-import { CreateShortlinkRequest, ResolveShortlinkRequest } from "../types/api-types";
+import { CreateShortlinkRequest, CreateShortlinkResponse, ResolveShortlinkRequest } from "../types/api-types";
 import apiClient from "./client";
 
 // ---- Shortlink ----
 
 // Generate shortlink
-export const createShortlink = async (createShortlinkRequest: CreateShortlinkRequest) => {
+export const createShortlink = async (createShortlinkRequest: CreateShortlinkRequest) : Promise<CreateShortlinkResponse> => {
     const response = await apiClient.post('/shortlink/generate', createShortlinkRequest);
     return response.data;
 }

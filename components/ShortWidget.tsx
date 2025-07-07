@@ -1,6 +1,6 @@
 "use client"
-import { ButtonVariant } from "@/enums/ShrtBtnEnum.enum"
-import { ShrtButton } from "../common/ShrtButton/ShrtButton"
+
+import { ShrtButton } from "./common/ShrtButton/ShrtButton"
 import { ShortUrlSchema } from "@/forms/ShortUrlSchema"
 import * as z from "zod/v4"
 import { SubmitHandler, useForm } from "react-hook-form"
@@ -8,8 +8,10 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useCallback, useState } from "react"
 import { useMutation } from "@tanstack/react-query"
 import { createShortlink } from "@/backend/api/shortlinks"
-import { useShortUrlStore } from "./store/ShortUrlStore"
+import { useShortUrlStore } from "../stores/ShortUrlStore"
 import { toast } from 'react-hot-toast';
+import { ButtonVariant } from "@/enums/ShrtBtnEnum.enum"
+import { CreateShortlinkResponse } from "@/backend/types/api-types"
 
 type ShortUrlForm = z.infer<typeof ShortUrlSchema>;
 
@@ -29,7 +31,7 @@ export const ShortWidget = () => {
         mutationFn: (value: ShortUrlForm) => {
             return createShortlink({ url: value.longUrl })
         },
-        onSuccess: (data) => {
+        onSuccess: (data: CreateShortlinkResponse) => {
             setShortedUrl(data.shortUrl)
             addShortUrl(data.shortUrl)
             toast.success("URL shortened successfully")
@@ -95,5 +97,3 @@ export const ShortWidget = () => {
         </div>
     )
 }
-
-

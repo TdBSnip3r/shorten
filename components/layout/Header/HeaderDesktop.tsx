@@ -1,8 +1,8 @@
 import Logo from "@/components/common/Logo"
 import { ShrtButton } from "@/components/common/ShrtButton/ShrtButton"
-import { ButtonVariant } from "@/enums/ShrtBtnEnum.enum"
-import router from "next/router"
 import Navigation from "./Navigation"
+import Link from "next/link"
+import { ButtonVariant } from "@/enums/ShrtBtnEnum.enum"
 
 const HeaderDesktop = () => {
     return (
@@ -10,8 +10,12 @@ const HeaderDesktop = () => {
         <Logo />
         <Navigation />
         <div className="flex flex-row gap-4">
-          <ShrtButton onClick={() => router.push('/login')} variant={ButtonVariant.SECONDARY}>Login</ShrtButton>
-          <ShrtButton onClick={() => router.push('/register')} variant={ButtonVariant.PRIMARY}>Registrati</ShrtButton>
+          <Link href="/landing/login">
+            <ShrtButton variant={ButtonVariant.SECONDARY}>Login</ShrtButton>
+          </Link>
+          <Link href="/landing/register">
+            <ShrtButton variant={ButtonVariant.PRIMARY}>Registrati</ShrtButton>
+          </Link>
         </div>
       </div>
     )

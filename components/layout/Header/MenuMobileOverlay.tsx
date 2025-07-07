@@ -1,4 +1,4 @@
-import { useMobileMenuStore } from "./store/MobileMenuStoreState"
+import { useMobileMenuStore } from "../../../stores/MobileMenuStoreState"
 import Navigation from "./Navigation"
 import { MobileCloseMenuButton } from "@/components/common/ShrtButton/MobileCloseMenuButton"
 

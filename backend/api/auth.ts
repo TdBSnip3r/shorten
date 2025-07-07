@@ -1,10 +1,10 @@
-import { EmailVerificationRequest, ForgotPasswordRequest, GoogleAuthRequest, LoginRequest, RegisterRequest, ResetPasswordRequest } from "../types/api-types";
+import { EmailVerificationRequest, ForgotPasswordRequest, GoogleAuthRequest, LoginRequest, LoginResponse, RegisterRequest, ResetPasswordRequest } from "../types/api-types";
 import apiClient from "./client";
 
 // ---- Email Auth ----
 
 // Login with email and password
-export const login = async (loginRequest: LoginRequest) => {
+export const login = async (loginRequest: LoginRequest): Promise<LoginResponse> => {
     const response = await apiClient.post('/auth/login', loginRequest);
     return response.data;
 }

@@ -1,6 +1,14 @@
+import { User } from "@/types/User";
+
 export interface LoginRequest {
     email: string;
     password: string;
+}
+
+export interface LoginResponse {
+    message: string
+    user: User
+    access_token: string
 }
 
 export interface RegisterRequest {
@@ -33,6 +41,15 @@ export interface GoogleAuthResponse {
 export interface CreateShortlinkRequest {
     url: string;
     slug?: string;
+}
+
+export interface CreateShortlinkResponse {
+    id: string
+    url: string
+    slug?: string
+    shortUrl: string
+    createdAt: string
+    updatedAt: string
 }
 
 export interface ResolveShortlinkRequest {

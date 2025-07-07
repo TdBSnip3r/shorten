@@ -5,7 +5,15 @@ import apiClient from "./client";
 
 // Generate shortlink
 export const createShortlink = async (createShortlinkRequest: CreateShortlinkRequest) : Promise<CreateShortlinkResponse> => {
-    const response = await apiClient.post('/shortlink/generate', createShortlinkRequest);
+    const user = localStorage.getItem('user-storage')
+    const parsedUser = user ? JSON.parse(user) : null
+    console.log(parsedUser)
+    const headers = parsedUser && parsedUser.state.user.access_token ? {
+        'Authorization': `Bearer ${parsedUser.state.user.access_token}`
+    } : {}
+    const response = await apiClient.post('/shortlink/generate', createShortlinkRequest, {
+        headers
+    });
     return response.data;
 }
 

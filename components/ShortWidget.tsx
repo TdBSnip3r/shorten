@@ -12,12 +12,14 @@ import { useShortUrlStore } from "../stores/ShortUrlStore"
 import { toast } from 'react-hot-toast';
 import { ButtonVariant } from "@/enums/ShrtBtnEnum.enum"
 import { CreateShortlinkResponse } from "@/backend/types/api-types"
+import { useUserStore } from "@/stores/UserStore"
 
 type ShortUrlForm = z.infer<typeof ShortUrlSchema>;
 
 export const ShortWidget = () => {
 
     const { addShortUrl } = useShortUrlStore() // <-- Temporary store for short urls (not logged user)
+    const { user } = useUserStore()
 
     const { register, handleSubmit, formState: { errors, isValid }, reset } = useForm<ShortUrlForm>({
         resolver: zodResolver(ShortUrlSchema),
@@ -29,7 +31,8 @@ export const ShortWidget = () => {
     //Use mutation to shorten url
     const mutation = useMutation({
         mutationFn: (value: ShortUrlForm) => {
-            return createShortlink({ url: value.longUrl })
+            const payload = { url: value.longUrl,...(value.slug && { slug: value.slug })}
+            return createShortlink(payload)
         },
         onSuccess: (data: CreateShortlinkResponse) => {
             setShortedUrl(data.shortUrl)
@@ -43,9 +46,7 @@ export const ShortWidget = () => {
         },
     })
 
-    const onSubmit: SubmitHandler<ShortUrlForm> = useCallback(async (value: any) => {
-        mutation.mutate(value)
-    }, []);
+    const onSubmit: SubmitHandler<ShortUrlForm> = useCallback(async (value: any) => {mutation.mutate(value)}, []);
 
     return (
         <div className="max-w-lg w-full bg-white shadow-2xl rounded-3xl p-8 flex flex-col gap-6 items-center justify-center border border-gray-100 mx-auto">
@@ -82,6 +83,16 @@ export const ShortWidget = () => {
                             className="w-full p-4 border border-gray-200 rounded-xl text-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
                             {...register("longUrl")}
                         />
+                        {
+                            user && (
+                                <input
+                                    type="text"
+                                    placeholder="Enter your custom slug"
+                                    className="w-full p-4 border border-gray-200 rounded-xl text-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+                                    {...register("slug")}
+                                />
+                            )
+                        }
                         {errors.longUrl && <p className="text-red-500 text-sm">{errors.longUrl.message}</p>}
                         <ShrtButton
                             type="submit"

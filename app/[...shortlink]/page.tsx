@@ -15,7 +15,7 @@ export default function ShortlinkCatchAllPage({ params }: { params: { shortlink:
     }
   });
 
-  const ready = Array.isArray(params.shortlink) && params.shortlink.length > 0;
+  const ready = Array.isArray(params?.shortlink) && params?.shortlink?.length > 0;
 
   useEffect(() => {
     if (!ready) return;

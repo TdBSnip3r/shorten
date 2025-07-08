@@ -1,4 +1,4 @@
-import { CreateShortlinkRequest, CreateShortlinkResponse, ListLinkShortRequest, ListLinkShortResponse, ResolveShortlinkRequest } from "../types/api-types";
+import { CreateShortlinkRequest, CreateShortlinkResponse, DeleteShortlinkRequest, DeleteShortlinkResponseFailed, DeleteShortlinkResponseSuccess, ListLinkShortRequest, ListLinkShortResponse, ResolveShortlinkRequest } from "../types/api-types";
 import apiClient from "./client";
 
 // ---- Shortlink ----
@@ -11,6 +11,19 @@ export const createShortlink = async (createShortlinkRequest: CreateShortlinkReq
         'Authorization': `Bearer ${parsedUser.state.user.access_token}`
     } : {}
     const response = await apiClient.post('/shortlink/generate', createShortlinkRequest, {
+        headers
+    });
+    return response.data;
+}
+
+// Delete shortlink
+export const deleteShortlink = async (deleteShortlinkRequest: DeleteShortlinkRequest) : Promise<DeleteShortlinkResponseSuccess | DeleteShortlinkResponseFailed> => {
+    const user = localStorage.getItem('user-storage')
+    const parsedUser = user ? JSON.parse(user) : null
+    const headers = parsedUser && parsedUser?.state?.user?.access_token ? {
+        'Authorization': `Bearer ${parsedUser.state.user.access_token}`
+    } : {}
+    const response = await apiClient.post('/shortlink/delete', deleteShortlinkRequest, {
         headers
     });
     return response.data;

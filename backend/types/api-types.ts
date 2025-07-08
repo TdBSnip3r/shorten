@@ -70,3 +70,17 @@ export interface ListLinkShortResponse {
         totalCount: number;
     };
 }
+
+export interface DeleteShortlinkRequest {
+    shortlink: string;
+}
+
+export interface DeleteShortlinkResponseSuccess {
+    message: string;
+}
+
+export interface DeleteShortlinkResponseFailed {
+    message: string;
+    error: string;
+    statusCode: number;
+}

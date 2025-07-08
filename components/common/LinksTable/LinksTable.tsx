@@ -10,11 +10,13 @@ interface LinksTableProps {
 
 const LinksTable: React.FC<LinksTableProps> = ({ links }) => {
   return (
-    <div className="overflow-x-auto rounded-xl shadow border border-gray-100">
-      <table className="min-w-full w-full bg-white text-left">
-        <LinksHeader />
-        <LinksBody links={links} />
-      </table>
+    <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+      <div className="overflow-x-auto">
+        <table className="min-w-full divide-y divide-gray-200">
+          <LinksHeader />
+          <LinksBody links={links} />
+        </table>
+      </div>
       <LinksPagination />
     </div>
   );

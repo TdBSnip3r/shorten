@@ -40,6 +40,7 @@ export const ShortWidget = () => {
             toast.success("URL shortened successfully")
         },
         onError: (error) => {
+            console.log(error)
             toast.error("Error shortening url")
             reset()
             setShortedUrl(null)

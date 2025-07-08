@@ -9,8 +9,6 @@ const DashboardPage = () => {
     console.log(user)
     return <ProtectedRoute>
         <CenteredLayout>
-            <h1>Dashboard</h1>
-            <p>Welcome {user?.firstName} {user?.lastName}</p>
             <ShortWidget />
         </CenteredLayout>
     </ProtectedRoute>

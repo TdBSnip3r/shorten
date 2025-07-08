@@ -1,4 +1,4 @@
-import { CreateShortlinkRequest, CreateShortlinkResponse, ResolveShortlinkRequest } from "../types/api-types";
+import { CreateShortlinkRequest, CreateShortlinkResponse, ListLinkShortRequest, ListLinkShortResponse, ResolveShortlinkRequest } from "../types/api-types";
 import apiClient from "./client";
 
 // ---- Shortlink ----
@@ -7,8 +7,7 @@ import apiClient from "./client";
 export const createShortlink = async (createShortlinkRequest: CreateShortlinkRequest) : Promise<CreateShortlinkResponse> => {
     const user = localStorage.getItem('user-storage')
     const parsedUser = user ? JSON.parse(user) : null
-    console.log(parsedUser)
-    const headers = parsedUser && parsedUser.state.user.access_token ? {
+    const headers = parsedUser && parsedUser?.state?.user?.access_token ? {
         'Authorization': `Bearer ${parsedUser.state.user.access_token}`
     } : {}
     const response = await apiClient.post('/shortlink/generate', createShortlinkRequest, {
@@ -17,8 +16,23 @@ export const createShortlink = async (createShortlinkRequest: CreateShortlinkReq
     return response.data;
 }
 
+// List shortlinks
+export const listShortlinks = async (listShortDto: ListLinkShortRequest) : Promise<ListLinkShortResponse> => {
+    const user = localStorage.getItem('user-storage')
+    const parsedUser = user ? JSON.parse(user) : null
+    const headers = parsedUser && parsedUser?.state?.user?.access_token ? {
+        'Authorization': `Bearer ${parsedUser.state.user.access_token}`
+    } : {}
+    const response = await apiClient.post('/shortlink/list', listShortDto, {
+        headers
+    });
+    return response.data;
+}
+
 // Resolve shortlink
-export const resolveShortlink = async (resolveShortlinkRequest: ResolveShortlinkRequest) => {
-    const response = await apiClient.get('/shortlink/resolve', { params: resolveShortlinkRequest });
+export const resolveShortlink = async (shortlink: string) => {
+    const response = await apiClient.post(`/shortlink/resolve`, {
+        shortlink: shortlink
+    });
     return response.data;
 }

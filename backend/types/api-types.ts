@@ -56,3 +56,17 @@ export interface ResolveShortlinkRequest {
     shortlink: string;
 }
 
+export interface ListLinkShortRequest {
+    page: number;
+    limit: number;
+}
+
+export interface ListLinkShortResponse {
+    results: CreateShortlinkResponse[];
+    pagination: {
+        currentPage: number;
+        elementsPerPage: number;
+        totalPage: number;
+        totalCount: number;
+    };
+}

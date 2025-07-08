@@ -35,7 +35,12 @@ export const resetPassword = async (resetPasswordRequest: ResetPasswordRequest) 
 
 // Send verification email (requires JWT token)
 export const sendVerificationEmail = async () => {
-    const response = await apiClient.get('/auth/send-verification-email');
+    const user = localStorage.getItem('user-storage')
+    const parsedUser = user ? JSON.parse(user) : null
+    const headers = parsedUser && parsedUser?.state?.user?.access_token ? {
+        'Authorization': `Bearer ${parsedUser.state.user.access_token}`
+    } : {}
+    const response = await apiClient.get('/auth/send-verification-email', { headers });
     return response.data;
 }
 

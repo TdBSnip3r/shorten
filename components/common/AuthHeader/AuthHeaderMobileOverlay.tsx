@@ -7,7 +7,6 @@ import { useUserStore } from "@/stores/UserStore"
 
 export const AuthHeaderMobileOverlay = () => {
     const { isOpen, setIsOpen } = useMobileMenuStore()
-    const { logout } = useUserStore()
     return (
         <div
             className={`fixed inset-0 bg-white z-40 flex flex-col items-center justify-center transition-transform duration-300 ${isOpen ? 'translate-x-0' : 'translate-x-full'

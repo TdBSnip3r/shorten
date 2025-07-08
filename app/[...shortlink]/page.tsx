@@ -1,10 +1,10 @@
 "use client";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { resolveShortlink } from "@/backend/api/shortlinks";
-import { useRouter } from "next/navigation";
 
-export default function ShortlinkCatchAllPage({ params }: { params: { shortlink: string[] } }) {
+export default function ShortlinkCatchAllPage({ params }: { params: Promise<{ shortlink: string[] }> }) {
+  const resolvedParams = React.use(params);
 
   const { mutate, isPending, isError } = useMutation({
     mutationFn: (path: string) => resolveShortlink(path),
@@ -15,18 +15,18 @@ export default function ShortlinkCatchAllPage({ params }: { params: { shortlink:
     }
   });
 
-  const ready = Array.isArray(params?.shortlink) && params?.shortlink?.length > 0;
+  const ready = Array.isArray(resolvedParams?.shortlink) && resolvedParams?.shortlink?.length > 0;
 
   useEffect(() => {
     if (!ready) return;
     let path = "";
-    if (params.shortlink.length === 1) {
-      path = `/${params.shortlink[0]}`;
-    } else if (params.shortlink.length === 2) {
-      path = `/${params.shortlink[0]}/${params.shortlink[1]}`;
+    if (resolvedParams.shortlink.length === 1) {
+      path = `/${resolvedParams.shortlink[0]}`;
+    } else if (resolvedParams.shortlink.length === 2) {
+      path = `/${resolvedParams.shortlink[0]}/${resolvedParams.shortlink[1]}`;
     }
     mutate(path);
-  }, [ready, mutate]);
+  }, [ready, mutate, resolvedParams]);
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">

@@ -16,6 +16,7 @@ const AuthNavigation : React.FC<AuthNavigationProps> = ({ isMobile = false }) =>
           <Link onClick={() => setIsOpen(false)} href="/dashboard/links" className={pathname === '/dashboard/links' ? 'text-blue-500' : 'text-gray-500'}>Links</Link>
           <Link onClick={() => setIsOpen(false)} href="/dashboard/settings" className={pathname === '/dashboard/settings' ? 'text-blue-500' : 'text-gray-500'}>Impostazioni</Link>
           <Link onClick={() => setIsOpen(false)} href="/dashboard/profile" className={pathname === '/dashboard/profile' ? 'text-blue-500' : 'text-gray-500'}>Profilo</Link>
+          <Link onClick={() => setIsOpen(false)} href="/dashboard/contacts" className={pathname === '/dashboard/contacts' ? 'text-blue-500' : 'text-gray-500'}>Contattaci</Link>
           <p className="text-gray-500 text cursor-pointer" onClick={logout}>Logout</p>
         </div>
     )

@@ -1,4 +1,4 @@
-import { EmailVerificationRequest, ForgotPasswordRequest, GoogleAuthRequest, LoginRequest, LoginResponse, RegisterRequest, ResetPasswordRequest } from "../types/api-types";
+import { ContactEmailRequest, EmailVerificationRequest, ForgotPasswordRequest, GoogleAuthRequest, LoginRequest, LoginResponse, RegisterRequest, ResetPasswordRequest } from "../types/api-types";
 import apiClient from "./client";
 
 // ---- Email Auth ----
@@ -62,5 +62,17 @@ export const googleRegister = async (googleRegisterRequest: GoogleAuthRequest) =
 // Google login
 export const googleLogin = async (googleLoginRequest: GoogleAuthRequest) => {
     const response = await apiClient.post('/auth/google/login', googleLoginRequest);
+    return response.data;
+}
+
+export const sendContactEmail = async (contactEmailRequest: ContactEmailRequest) => {
+    const user = localStorage.getItem('user-storage')
+    const parsedUser = user ? JSON.parse(user) : null
+    const headers = parsedUser && parsedUser?.state?.user?.access_token ? {
+        'Authorization': `Bearer ${parsedUser.state.user.access_token}`
+    } : {}
+    const response = await apiClient.post('/contacts/send', contactEmailRequest, {
+        headers
+    });
     return response.data;
 }

@@ -84,3 +84,12 @@ export interface DeleteShortlinkResponseFailed {
     error: string;
     statusCode: number;
 }
+
+export interface ContactEmailRequest {
+    title: string;
+    content: string;
+}
+
+export interface ContactEmailResponse {
+    message: string;
+}

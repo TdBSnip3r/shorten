@@ -6,7 +6,7 @@ import AuthHeaderMobile from "./AuthHeaderMobile";
 const AuthHeader = () => {
     const size = useWindowSize();
 
-    if (size && size.width && size.width < 768) {
+    if (size && size.width && size.width < 870) {
       return <AuthHeaderMobile />
     }
   

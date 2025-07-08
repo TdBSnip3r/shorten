@@ -9,9 +9,13 @@ const AuthHeaderDesktop = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-row justify-between items-center py-2">
-      <Logo redirectUrl="/dashboard" />
-      <AuthNavigation />
-      <div className="flex flex-row gap-4">
+      <div className="flex-1">
+        <Logo redirectUrl="/dashboard" />
+      </div>
+      <div className="flex-1 flex justify-center">
+        <AuthNavigation />
+      </div>
+      <div className="flex-1 flex justify-end gap-4">
         <ShrtButton variant={ButtonVariant.SECONDARY} onClick={logout}>Logout</ShrtButton>
       </div>
     </div>

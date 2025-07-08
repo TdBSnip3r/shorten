@@ -6,7 +6,7 @@ import { useWindowSize } from "@uidotdev/usehooks";
 export default function Header() {
   const size = useWindowSize();
 
-  if (size && size.width && size.width < 768) {
+  if (size && size.width && size.width < 870) {
     return <HeaderMobile />
   }
 

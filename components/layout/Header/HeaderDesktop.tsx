@@ -7,9 +7,13 @@ import { ButtonVariant } from "@/enums/ShrtBtnEnum.enum"
 const HeaderDesktop = () => {
     return (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-row justify-between items-center py-2">
-        <Logo />
-        <Navigation />
-        <div className="flex flex-row gap-4">
+          <div className="flex-1">
+            <Logo />
+          </div>
+          <div className="flex-1 flex justify-center">
+            <Navigation />
+          </div>
+        <div className="flex-1 flex justify-end gap-4">
           <Link href="/landing/login">
             <ShrtButton variant={ButtonVariant.SECONDARY}>Login</ShrtButton>
           </Link>

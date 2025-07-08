@@ -1,7 +1,7 @@
 "use client"
 import CenteredLayout from "@/components/layout/CenterdLayout"
 import { ProtectedRoute } from "@/components/providers/ProtectedRoute"
-import { ShortWidget } from "@/components/ShortWidget"
+import { ShortWidget } from "@/components/ShortWidget/ShortWidget"
 import { useUserStore } from "@/stores/UserStore"
 
 const DashboardPage = () => {

@@ -1,5 +1,5 @@
 import HomeLayout from "@/components/layout/CenterdLayout";
-import { ShortWidget } from "@/components/ShortWidget";
+import { ShortWidget } from "@/components/ShortWidget/ShortWidget";
 
 export default function Home() {
 

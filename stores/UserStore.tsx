@@ -16,7 +16,7 @@ export const useUserStore = create<UserStore>()(
             logout: () => {
                 set({ user: null })
                 //Refreshing the page
-                window.location.reload()
+                window.location.href = '/landing'
             },
         }),
         {

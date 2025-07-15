@@ -1,4 +1,5 @@
-import { ContactEmailRequest, EmailVerificationRequest, ForgotPasswordRequest, GoogleAuthRequest, LoginRequest, LoginResponse, RegisterRequest, ResetPasswordRequest } from "../types/api-types";
+import { UserType } from "@/enums/UserType.enum";
+import { ContactEmailRequest, EmailVerificationRequest, ForgotPasswordRequest, GoogleAuthRequest, GoogleRegisterResponse, LoginRequest, LoginResponse, RegisterRequest, RegisterResponse, ResetPasswordRequest } from "../types/api-types";
 import apiClient from "./client";
 
 // ---- Email Auth ----
@@ -10,8 +11,8 @@ export const login = async (loginRequest: LoginRequest): Promise<LoginResponse> 
 }
 
 // Register with email and password
-export const register = async (registerRequest: RegisterRequest) => {
-    const response = await apiClient.post('/auth/register', registerRequest);
+export const registerWithEmail = async (registerRequest: RegisterRequest): Promise<RegisterResponse> => {
+    const response = await apiClient.post('/auth/register', { ...registerRequest, userType: UserType.USER });
     return response.data;
 }
 
@@ -59,7 +60,7 @@ export const checkEmail = async () => {
 // ---- Google Auth ----
 
 // Google register
-export const googleRegister = async (googleRegisterRequest: GoogleAuthRequest) => {
+export const googleRegister = async (googleRegisterRequest: GoogleAuthRequest): Promise<GoogleRegisterResponse> => {
     const response = await apiClient.post('/auth/google/register', googleRegisterRequest);
     return response.data;
 }

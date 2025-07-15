@@ -1,5 +1,5 @@
 'use client'
-import { LoginFormSchema } from "@/forms/LoginFormSchema"
+import { LoginFormSchema, FORM_FIELDS } from "@/forms/LoginFormSchema"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { SubmitHandler, useForm } from "react-hook-form"
 import * as z from "zod/v4"
@@ -12,6 +12,8 @@ import { ButtonVariant } from "@/enums/ShrtBtnEnum.enum"
 import { useUserStore } from "@/stores/UserStore"
 import { LoginResponse } from "@/backend/types/api-types"
 import { useRouter } from "next/navigation";
+import Link from "next/link"
+import LoginRegisterWithGoogle from "./common/LoginRegisterWithGoogle"
 
 type LoginForm = z.infer<typeof LoginFormSchema>
 
@@ -46,24 +48,24 @@ export const LoginForm = () => {
         <div className="max-w-lg w-full bg-white shadow-2xl rounded-3xl p-8 flex flex-col gap-6 items-center justify-center border border-gray-100 mx-auto">
             <h1 className="text-2xl font-bold">Login</h1>
             <img src="/logo.svg" alt="logo" className="w-24 h-24" />
+            <LoginRegisterWithGoogle type="login" />
             <form
                 onSubmit={handleSubmit(onSubmit)}
                 className="flex flex-col gap-4 w-full max-w-md mx-auto"
             >
-                <input
-                    type="email"
-                    {...register("email")}
-                    placeholder="Email"
-                    className="w-full max-w-md p-4 border border-gray-200 rounded-xl text-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
-                />
-                {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
-                <input
-                    type="password"
-                    {...register("password")}
-                    placeholder="Password"
-                    className="w-full max-w-md p-4 border border-gray-200 rounded-xl text-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
-                />
-                {errors.password && <p className="text-red-500 text-sm">{errors.password.message}</p>}
+                {
+                    FORM_FIELDS.map((field) => (
+                        <div key={field.name}>
+                            <input
+                                type={field.type}
+                                {...register(field.name as keyof LoginForm)}
+                                placeholder={field.placeholder}
+                                className="w-full max-w-md p-4 border border-gray-200 rounded-xl text-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+                            />
+                            {errors[field.name as keyof LoginForm] && <p className="text-red-500 text-sm">{errors[field.name as keyof LoginForm]?.message}</p>}
+                        </div>
+                    ))
+                }
                 <ShrtButton
                     disabled={!isValid || isPending}
                     variant={ButtonVariant.PRIMARY}
@@ -71,6 +73,7 @@ export const LoginForm = () => {
                 >
                     Login
                 </ShrtButton>
+                <p className="text-sm text-gray-500">Don't have an account? <Link href="/landing/register" className="text-blue-500 hover:underline">Register</Link></p>
             </form>
         </div>
     )

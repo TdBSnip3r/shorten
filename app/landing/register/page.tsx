@@ -1,8 +1,11 @@
+import CenteredLayout from "@/components/layout/CenterdLayout"
+import { RegisterForm } from "@/components/RegisterForm"
+
 const RegisterPage = () => {
     return (
-        <div>
-            <h1>Register</h1>
-        </div>
+        <CenteredLayout>
+            <RegisterForm />
+        </CenteredLayout>
     )
 }
 

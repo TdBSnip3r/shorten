@@ -12,8 +12,16 @@ export interface LoginResponse {
 }
 
 export interface RegisterRequest {
+    firstName: string;
+    lastName: string;
     email: string;
     password: string;
+}
+
+export interface RegisterResponse {
+    message: string
+    user: User
+    access_token: string
 }
 
 export interface ForgotPasswordRequest {
@@ -92,4 +100,16 @@ export interface ContactEmailRequest {
 
 export interface ContactEmailResponse {
     message: string;
+}
+
+export interface GoogleRegisterResponse {
+    message: string;
+    user: User;
+    access_token: string;
+}
+
+export interface GoogleLoginResponse {
+    message: string;
+    user: User;
+    access_token: string;
 }

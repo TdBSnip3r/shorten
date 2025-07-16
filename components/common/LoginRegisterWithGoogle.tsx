@@ -50,7 +50,7 @@ const LoginRegisterWithGoogle: React.FC<LoginRegisterWithGoogleProps> = ({ type 
 
 
   return (
-    <GoogleOAuthProvider clientId={process.env.NEXT_APP_GOOGLE_CLIENT_ID!}>
+    <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_APP_GOOGLE_CLIENT_ID as string}>
       <div className="flex items-center justify-center w-full relative mt-2">
         <div className="absolute top-0 left-0 w-full h-auto opacity-0">
           <GoogleLogin

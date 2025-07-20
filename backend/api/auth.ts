@@ -82,3 +82,13 @@ export const sendContactEmail = async (contactEmailRequest: ContactEmailRequest)
     });
     return response.data;
 }
+
+export const checkAuth = async () => {
+    const user = localStorage.getItem('user-storage')
+    const parsedUser = user ? JSON.parse(user) : null
+    const headers = parsedUser && parsedUser?.state?.user?.access_token ? {
+        'Authorization': `Bearer ${parsedUser.state.user.access_token}`
+    } : {}
+    const response = await apiClient.get('/auth/check-auth', { headers });
+    return response.data;
+}

@@ -18,4 +18,18 @@ apiClient.interceptors.request.use((config) => {
   return config;
 });
 
+apiClient.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    // Se è un errore 401, emettiamo un evento personalizzato
+    if (error.response?.status === 401) {
+      //Clean localstorage
+      localStorage.removeItem('user-storage');
+      //Redirect to landing page
+      window.location.href = '/landing'
+    }
+    return Promise.reject(error);
+  }
+);
+
 export default apiClient;

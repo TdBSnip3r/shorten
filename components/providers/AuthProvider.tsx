@@ -12,7 +12,7 @@ interface AuthProviderProps {
 export function AuthProvider({ children }: AuthProviderProps) {
   const { user, logout } = useUserStore();
   const router = useRouter();
-  const { data, error } = useQuery({ queryKey: ['auth-check'], queryFn: checkAuth, enabled: !!user, retry: false, refetchInterval: 60 * 1000});
+  const { data, error } = useQuery({ queryKey: ['auth-check'], queryFn: checkAuth, enabled: !!user, retry: false});
 
   useEffect(() => {
     if (error && user) {

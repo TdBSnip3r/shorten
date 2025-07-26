@@ -1,6 +1,7 @@
 import { deleteShortlink } from "@/backend/api/shortlinks";
 import CopyButton from "@/components/common/ShrtButton/CopyButton";
 import DeleteButton from "@/components/common/ShrtButton/DeleteButton";
+import TestButton from "@/components/common/ShrtButton/TestButton";
 import { useUserStore } from "@/stores/UserStore";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
@@ -29,9 +30,10 @@ const ShortWidgetClipboard = ({ shortUrl, onDeleteRequest }: ShortWidgetClipboar
     return (
         <div className="w-full flex flex-row items-center gap-4 bg-blue-50 border border-blue-200 rounded-xl px-4 py-3 shadow-sm w-full">
             <span className="flex-1 truncate text-lg font-mono text-blue-700" title={shortUrl}>
-                {shortUrl}
+                {`${process.env.NEXT_PUBLIC_FRONTEND_URL}${shortUrl}`}
             </span>
-            <CopyButton textToCopy={shortUrl} />
+            <CopyButton textToCopy={`${process.env.NEXT_PUBLIC_FRONTEND_URL}${shortUrl}`} />
+            <TestButton urlToTest={`${process.env.NEXT_PUBLIC_FRONTEND_URL}${shortUrl}`} />
             {user && <DeleteButton onDeleteRequest={() => deleteShortlinkMutation(shortUrl)} />}
         </div>
     )

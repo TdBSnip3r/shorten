@@ -26,13 +26,15 @@ const EmailVerificationBanner = () => {
         <span className="inline-block">
             ⚠️ Devi verificare la tua email per accedere a tutte le funzionalità. Controlla la tua casella di posta e segui il link di verifica!
         </span>
-        <ShrtButton
-            disabled={isPending}
-            className={`${isPending ? "opacity-50 cursor-not-allowed" : ""}`}
-            onClick={() => resendEmailVerificationMutation()}
-            variant={ButtonVariant.SECONDARY}>
-            {isPending ? "Sending..." : "Send"}
-        </ShrtButton>
+        <div>
+            <ShrtButton
+                disabled={isPending}
+                className={`${isPending ? "opacity-50 cursor-not-allowed" : ""}`}
+                onClick={() => resendEmailVerificationMutation()}
+                variant={ButtonVariant.SECONDARY}>
+                {isPending ? "Sending..." : "Send"}
+            </ShrtButton>
+        </div>
 
     </div>);
 };

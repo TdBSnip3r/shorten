@@ -4,7 +4,7 @@ export const ShrtPrimaryVariant: React.FC<ShrtButtonProps> = ({ children, ...pro
     return (
         <button
             {...props}
-            className={`px-4 py-2 rounded-md  font-bold bg-blue-500 text-white ${props.disabled ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}`}>
+            className={`px-4 py-2 rounded-md w-full font-bold bg-blue-500 text-white ${props.disabled ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}`}>
             {children}
         </button>
     )

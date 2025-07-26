@@ -50,7 +50,7 @@ export const ShortWidget = () => {
     const onSubmit: SubmitHandler<ShortUrlForm> = useCallback(async (value: any) => { mutation.mutate(value) }, []);
 
     return (
-        <div className="max-w-lg w-full bg-white shadow-2xl rounded-3xl p-8 flex flex-col gap-6 items-center justify-center border border-gray-100 mx-auto">
+        <div className="bg-white shadow-2xl rounded-3xl p-8 flex flex-col gap-6 items-center justify-center border border-gray-100 mx-auto">
             {shortedUrl ? (
                 <ShortWidgetResults
                     shortedUrl={shortedUrl}

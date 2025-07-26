@@ -11,9 +11,9 @@ interface ShortWidgetResultsProps {
 const ShortWidgetResults = ({ shortedUrl, onShortAnotherUrl }: ShortWidgetResultsProps) => {
     const { user } = useUserStore()
     return (
-        <div className="flex flex-col items-center gap-4">
+        <div className="flex flex-col items-center gap-4 p-4">
             <ShortWidgetClipboard shortUrl={shortedUrl} onDeleteRequest={onShortAnotherUrl} />
-            <div className="flex flex-col md:flex-row gap-2 w-full">
+            <div className="flex flex-col md:flex-row gap-2 w-full justify-between items-center">
                 <ShrtButton
                     onClick={onShortAnotherUrl}
                     variant={ButtonVariant.SECONDARY}
@@ -21,7 +21,7 @@ const ShortWidgetResults = ({ shortedUrl, onShortAnotherUrl }: ShortWidgetResult
                 >
                     Shorten another URL
                 </ShrtButton>
-                {user && <Link href="/dashboard/links"><ShrtButton variant={ButtonVariant.SECONDARY}>Vai alla pagina dei tuoi link</ShrtButton></Link>}
+                {user && <Link className="w-full" href="/dashboard/links"><ShrtButton variant={ButtonVariant.SECONDARY}>Vai alla pagina dei tuoi link</ShrtButton></Link>}
             </div>
         </div>
     )

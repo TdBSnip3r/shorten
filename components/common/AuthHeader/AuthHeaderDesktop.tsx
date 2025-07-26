@@ -16,7 +16,9 @@ const AuthHeaderDesktop = () => {
         <AuthNavigation />
       </div>
       <div className="flex-1 flex justify-end gap-4">
-        <ShrtButton variant={ButtonVariant.SECONDARY} onClick={logout}>Logout</ShrtButton>
+        <div>
+          <ShrtButton className="w-full" variant={ButtonVariant.SECONDARY} onClick={logout}>Logout</ShrtButton>
+        </div>
       </div>
     </div>
   )

@@ -6,6 +6,7 @@ import LinksTableNoElementBanner from "./LinksTableNoElementBanner";
 import LinksTableShortUrl from "./LinksTableShortUrl";
 import CopyButton from "../ShrtButton/CopyButton";
 import DeleteButton from "../ShrtButton/DeleteButton";
+import TestButton from "../ShrtButton/TestButton";
 
 interface Link {
     id: string;
@@ -51,7 +52,8 @@ const LinksBody: React.FC<{ links: Link[] }> = ({ links }) => {
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                             <div className="flex space-x-3">
-                                <CopyButton textToCopy={link.shortUrl} />
+                                <CopyButton textToCopy={`${process.env.NEXT_PUBLIC_FRONTEND_URL}${link.shortUrl}`} />
+                                <TestButton urlToTest={`${process.env.NEXT_PUBLIC_FRONTEND_URL}${link.shortUrl}`} />
                                 <DeleteButton onDeleteRequest={() => deleteShortlinkMutation(link.shortUrl)} />
                             </div>
                         </td>

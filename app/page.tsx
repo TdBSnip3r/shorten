@@ -1,22 +1,18 @@
-
-import TextPressure from "@/components/common/TextPressure";
-import CenteredLayout from "@/components/layout/CenterdLayout";
+'use client'
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function Home() {
+  const router = useRouter();
+
+  //Go to /landing
+  useEffect(() => {
+    router.push("/landing");
+  }, [router]);
+
   return (
-    <CenteredLayout>
-      <TextPressure
-        text="Under construction"
-        flex={true}
-        alpha={false}
-        stroke={false}
-        width={true}
-        weight={true}
-        italic={true}
-        textColor="#000000"
-        strokeColor="#ffffff"
-        minFontSize={36}
-      />
-    </CenteredLayout>
+    <div className="flex items-center justify-center min-h-screen">
+      <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600"></div>
+    </div>
   );
 }

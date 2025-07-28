@@ -18,7 +18,7 @@ const EmailVerificationBanner = () => {
             toast.success("Controlla la tua casella di posta per verificare la tua email")
         },
         onError: (error) => {
-            toast.error(error.message)
+            toast.error("Error sending email. Try again later.")
         }
     })
 

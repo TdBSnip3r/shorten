@@ -7,6 +7,7 @@ import LinksTableShortUrl from "./LinksTableShortUrl";
 import CopyButton from "../ShrtButton/CopyButton";
 import DeleteButton from "../ShrtButton/DeleteButton";
 import TestButton from "../ShrtButton/TestButton";
+import { beautifyDate } from "@/utils/date";
 
 interface Link {
     id: string;
@@ -16,7 +17,7 @@ interface Link {
 }
 
 const LinksBody: React.FC<{ links: Link[] }> = ({ links }) => {
-    
+
     const queryClient = useQueryClient()
     const { mutate: deleteShortlinkMutation, isPending, data } = useMutation({
         mutationFn: (shortlink: string) => deleteShortlink({ shortlink }),
@@ -47,15 +48,18 @@ const LinksBody: React.FC<{ links: Link[] }> = ({ links }) => {
                                 </p>
                             </div>
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap">
+                        <td className="px-6 py-4 whitespace-nowrap flex justify-center items-center">
                             <LinksTableShortUrl shortUrl={link.shortUrl} />
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 flex justify-center items-center">
                             <div className="flex space-x-3">
                                 <CopyButton textToCopy={`${process.env.NEXT_PUBLIC_FRONTEND_URL}${link.shortUrl}`} />
                                 <TestButton urlToTest={`${process.env.NEXT_PUBLIC_FRONTEND_URL}${link.shortUrl}`} />
                                 <DeleteButton onDeleteRequest={() => deleteShortlinkMutation(link.shortUrl)} />
                             </div>
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-center">
+                            {link.createdAt ? beautifyDate(link.createdAt) : ''}
                         </td>
                     </tr>
                 ))

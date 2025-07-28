@@ -1,4 +1,5 @@
 "use client"
+import BlurText from "@/components/common/BlurText"
 import PaddingPageLayout from "@/components/layout/PaddingPageLayout"
 import { ProtectedRoute } from "@/components/providers/ProtectedRoute"
 import { ShortWidget } from "@/components/ShortWidget/ShortWidget"
@@ -10,7 +11,14 @@ const DashboardPage = () => {
     return <ProtectedRoute>
         <PaddingPageLayout>
             <div className="flex flex-col gap-4 w-full items-center justify-center">
-                <h1 className="text-2xl font-bold">Hi {user?.firstName}</h1>
+                <BlurText
+                    bold={true}
+                    text={`Hi, ${user?.firstName}`}
+                    delay={150}
+                    animateBy="words"
+                    direction="top"
+                    className="text-sm sm:text-lg mb-8"
+                />
                 <div className="w-full max-w-lg">
                     <ShortWidget />
                 </div>

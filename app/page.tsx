@@ -1,9 +1,22 @@
-import HomeLayout from "@/components/layout/CenterdLayout";
+
+import TextPressure from "@/components/common/TextPressure";
+import CenteredLayout from "@/components/layout/CenterdLayout";
 
 export default function Home() {
   return (
-    <HomeLayout>
-      <p>Under construction</p>
-    </HomeLayout>
+    <CenteredLayout>
+      <TextPressure
+        text="Under construction"
+        flex={true}
+        alpha={false}
+        stroke={false}
+        width={true}
+        weight={true}
+        italic={true}
+        textColor="#000000"
+        strokeColor="#ffffff"
+        minFontSize={36}
+      />
+    </CenteredLayout>
   );
 }

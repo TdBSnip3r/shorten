@@ -6,11 +6,14 @@ const LinksHeader: React.FC = () => (
       <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider">
         Original URL
       </th>
-      <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider">
+      <th className="px-6 py-4 text-center text-sm font-semibold text-gray-700 uppercase tracking-wider">
         Short URL
       </th>
-      <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider">
+      <th className="px-6 py-4 text-center text-sm font-semibold text-gray-700 uppercase tracking-wider">
         Azioni
+      </th>
+      <th className="px-6 py-4 text-center text-sm font-semibold text-gray-700 uppercase tracking-wider">
+        Created At
       </th>
     </tr>
   </thead>

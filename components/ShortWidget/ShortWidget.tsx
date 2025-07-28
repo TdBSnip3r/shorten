@@ -13,6 +13,7 @@ import { ButtonVariant } from "@/enums/ShrtBtnEnum.enum"
 import { CreateShortlinkResponse } from "@/backend/types/api-types"
 import { useUserStore } from "@/stores/UserStore"
 import ShortWidgetResults from "./ShortWidgetResults"
+import BlurText from "../common/BlurText"
 
 type ShortUrlForm = z.infer<typeof ShortUrlSchema>;
 
@@ -60,8 +61,22 @@ export const ShortWidget = () => {
                     }} />
             ) : (
                 <>
-                    <h1 className="text-3xl font-extrabold text-gray-900 text-center">The easiest way to shorten your links.</h1>
-                    <p className="text-lg text-gray-500 text-center">Paste your long URL and get a short URL for free</p>
+                    <BlurText
+                        bold={true}
+                        text="The easiest way to shorten your links."
+                        delay={150}
+                        animateBy="words"
+                        direction="top"
+                        className="text-2xl mb-8"
+                    />
+                    <BlurText
+                        bold={false}
+                        text="Paste your long URL and get a short URL for free"
+                        delay={150}
+                        animateBy="words"
+                        direction="top"
+                        className="text-lg mb-8"
+                    />
                     <form
                         onSubmit={handleSubmit(onSubmit)}
                         className="w-full flex flex-col gap-4"

@@ -51,8 +51,9 @@ const LinksBody: React.FC<{ links: Link[] }> = ({ links }) => {
                         <td className="px-6 py-4 whitespace-nowrap flex justify-center items-center">
                             <LinksTableShortUrl shortUrl={link.shortUrl} />
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 flex justify-center items-center">
-                            <div className="flex space-x-3">
+                        
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 ">
+                            <div className="flex space-x-3 flex-row justify-center items-center">
                                 <CopyButton textToCopy={`${process.env.NEXT_PUBLIC_FRONTEND_URL}${link.shortUrl}`} />
                                 <TestButton urlToTest={`${process.env.NEXT_PUBLIC_FRONTEND_URL}${link.shortUrl}`} />
                                 <DeleteButton onDeleteRequest={() => deleteShortlinkMutation(link.shortUrl)} />

@@ -17,8 +17,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Shorten - Accorcia i tuoi URL",
-  description: "La piattaforma più semplice e veloce per accorciare i tuoi URL",
+  title: "Shorten - Shorten your links",
+  description: "The easiest and fastest platform to shorten your links",
+  icons: {
+    icon: '/logo.svg',
+    shortcut: '/logo.svg',
+    apple: '/logo.svg',
+  },
 };
 
 export default function RootLayout({

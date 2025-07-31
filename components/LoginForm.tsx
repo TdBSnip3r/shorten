@@ -47,9 +47,9 @@ export const LoginForm = () => {
     return (
         <div className="max-w-lg w-full shadow-2xl rounded-3xl p-8 flex flex-col gap-6 items-center justify-center border border-gray-100 mx-auto">
             <h1 className="text-2xl font-bold text-white">Login</h1>
-            <img src="/logo.svg" alt="logo" className="w-24 h-24" />
+            {/* <img src="/logo.svg" alt="logo" className="w-24 h-24" /> */}
             <LoginRegisterWithGoogle type="login" />
-            <form
+            {/* <form
                 onSubmit={handleSubmit(onSubmit)}
                 className="flex flex-col gap-4 w-full max-w-md mx-auto"
             >
@@ -74,7 +74,7 @@ export const LoginForm = () => {
                     Login
                 </ShrtButton>
                 <p className="text-sm text-gray-500">Don't have an account? <Link href="/landing/register" className="text-blue-500 hover:underline">Register</Link></p>
-            </form>
+            </form> */}
         </div>
     )
 }

@@ -1,6 +1,6 @@
 const LinksHeroSection = () => (
     <section className="w-full flex flex-col items-center justify-center py-10 rounded-xl mb-6 shadow-sm">
-      <div className="flex items-center gap-3 mb-2">
+      <div className="flex items-center flex-col sm:flex-row gap-3 mb-2">
         {/* Icona SVG di un link */}
         <span className="inline-block p-2 bg-blue-100 rounded-full">
           <svg width="36" height="36" fill="none" viewBox="0 0 24 24">

@@ -65,7 +65,7 @@ export const ShortWidget = () => {
     const onSubmit: SubmitHandler<ShortUrlForm> = useCallback(async (value: any) => { mutation.mutate(value) }, []);
 
     return (
-        <div className="bg-white shadow-2xl rounded-3xl p-8 flex flex-col gap-6 items-center justify-center border border-gray-100 mx-auto">
+        <div className="shadow-2xl rounded-3xl p-8 flex flex-col gap-6 items-center justify-center border border-gray-100 mx-auto">
             {shortedUrl ? (
                 <ShortWidgetResults
                     shortedUrl={shortedUrl}
@@ -75,8 +75,8 @@ export const ShortWidget = () => {
                     }} />
             ) : (
                 <>
-                    <BlurText bold={true} text="The easiest way to shorten your links." delay={150} animateBy="words" direction="top" className="text-2xl mb-8" />
-                    <BlurText bold={false} text="Paste your long URL and get a short URL for free" delay={150} animateBy="words" direction="top" className="text-lg mb-8" />
+                    <BlurText bold={true} text="The easiest way to shorten your links." delay={150} animateBy="words" direction="top" className="text-2xl mb-8 text-white" />
+                    <BlurText bold={false} text="Paste your long URL and get a short URL for free" delay={150} animateBy="words" direction="top" className="text-lg mb-8 text-white" />
                     <form
                         onSubmit={handleSubmit(onSubmit)}
                         className="w-full flex flex-col gap-4"
@@ -84,7 +84,7 @@ export const ShortWidget = () => {
                         <input
                             type="text"
                             placeholder="Enter your long URL"
-                            className={"w-full p-4 border border-gray-200 rounded-xl text-lg focus:outline-none transition " + (errors.longUrl ? "border-red-500" : "")}
+                            className={"w-full p-4 border border-gray-200 rounded-xl text-lg focus:outline-none transition text-white " + (errors.longUrl ? "border-red-500" : "")}
                             {...register("longUrl")}
                         />
                         {errors.longUrl && <p className="text-red-500 text-sm">{errors.longUrl.message}</p>}
@@ -93,7 +93,7 @@ export const ShortWidget = () => {
                                 <input
                                     type="text"
                                     placeholder="Enter your custom slug"
-                                    className={"w-full p-4 border border-gray-200 rounded-xl text-lg focus:outline-none transition " + (errors.slug ? "border-red-500" : "")}
+                                    className={"w-full p-4 border border-gray-200 rounded-xl text-lg focus:outline-none transition text-white " + (errors.slug ? "border-red-500" : "")}
                                     {...register("slug")}
                                 />
                             )

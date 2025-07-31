@@ -17,7 +17,7 @@ const DashboardPage = () => {
                     delay={150}
                     animateBy="words"
                     direction="top"
-                    className="text-sm sm:text-lg mb-8"
+                    className="text-sm sm:text-lg mb-8 text-white"
                 />
                 <div className="w-full max-w-lg">
                     <ShortWidget />

@@ -8,7 +8,7 @@ const LinksTableShortUrl = ({ shortUrl }: LinksTableShortUrlProps) => {
             href={shortUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-600 hover:text-blue-800 font-medium transition-colors duration-150 ease-in-out"
+            className="text-white font-bold hover:text-blue-800 font-medium transition-colors duration-150 ease-in-out"
         >
             {shortUrl}
         </a>

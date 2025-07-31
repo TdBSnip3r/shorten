@@ -10,7 +10,7 @@ const AuthHeader = () => {
       return <AuthHeaderMobile />
     }
   
-    return <header className="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
+    return <header className="bg-black shadow-sm border-b border-gray-200 sticky top-0 z-50">
       <AuthHeaderDesktop />
     </header>
 }

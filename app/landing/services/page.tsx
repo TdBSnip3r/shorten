@@ -1,10 +1,11 @@
 "use client"
 const ServicesPage = () => {
     return (
-        <div className="min-h-[60vh] flex flex-col items-center justify-center bg-white py-12 px-4">
+        <div className="min-h-[60vh] flex flex-col items-center justify-center bg-black py-12 px-4">
+            <div className="main"/>
             <div className="max-w-2xl w-full text-center">
-                <h1 className="text-4xl font-extrabold text-gray-900 mb-4">I nostri Servizi</h1>
-                <p className="text-lg text-gray-600 mb-8">
+                <h1 className="text-4xl font-extrabold text-white mb-4">I nostri Servizi</h1>
+                <p className="text-lg text-white mb-8">
                     Offriamo un servizio gratuito e immediato per accorciare i tuoi URL, rendendo la condivisione dei link più semplice, veloce e professionale. Puoi monitorare le tue condivisioni e gestire facilmente tutti i tuoi link da un'unica piattaforma.
                 </p>
                 <div className="bg-blue-50 rounded-xl p-6 mb-8">

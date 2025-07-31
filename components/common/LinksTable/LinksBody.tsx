@@ -31,7 +31,7 @@ const LinksBody: React.FC<{ links: Link[] }> = ({ links }) => {
     })
 
     return (
-        <tbody className="bg-white divide-y divide-gray-100">
+        <tbody className="divide-y divide-gray-100">
             {links.length === 0 ? (
                 <tr>
                     <td colSpan={3} className="px-6 py-12 text-center">
@@ -40,10 +40,10 @@ const LinksBody: React.FC<{ links: Link[] }> = ({ links }) => {
                 </tr>
             ) : (
                 links.map((link, index) => (
-                    <tr key={link.id} className="hover:bg-gray-50 transition-colors duration-150 ease-in-out">
+                    <tr key={link.id} className="transition-colors duration-150 ease-in-out">
                         <td className="px-6 py-4 whitespace-nowrap">
                             <div className="max-w-xs">
-                                <p className="text-sm text-gray-900 truncate" title={link.url}>
+                                <p className="text-sm text-white truncate" title={link.url}>
                                     {link.url}
                                 </p>
                             </div>
@@ -59,7 +59,7 @@ const LinksBody: React.FC<{ links: Link[] }> = ({ links }) => {
                                 <DeleteButton onDeleteRequest={() => deleteShortlinkMutation(link.shortUrl)} />
                             </div>
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-center">
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-center text-white">
                             {link.createdAt ? beautifyDate(link.createdAt) : ''}
                         </td>
                     </tr>

@@ -10,15 +10,15 @@ const Navigation: React.FC<NavigationProps> = ({ isMobile = false }) => {
     const { setIsOpen } = useMobileMenuStore()
     return (
         <div className={`flex  gap-4 ${isMobile ? 'flex-col' : 'flex-row'}`}>
-            <Link onClick={() => setIsOpen(false)} href="/landing" className={pathname === '/landing' ? 'text-blue-500' : 'text-gray-500'}>Home</Link>
-            <Link onClick={() => setIsOpen(false)} href="/landing/services" className={pathname === '/landing/services' ? 'text-blue-500' : 'text-gray-500'}>Servizi</Link>
+            <Link onClick={() => setIsOpen(false)} href="/landing" className={pathname === '/landing' ? 'text-blue-500 font-bold' : 'text-white'}>Home</Link>
+            <Link onClick={() => setIsOpen(false)} href="/landing/services" className={pathname === '/landing/services' ? 'text-blue-500 font-bold' : 'text-white'}>Servizi</Link>
             {
                 isMobile &&
-                <Link onClick={() => setIsOpen(false)} href="/landing/login" className={pathname === '/landing/login' ? 'text-blue-500' : 'text-gray-500'}>Login</Link>
+                <Link onClick={() => setIsOpen(false)} href="/landing/login" className={pathname === '/landing/login' ? 'text-blue-500 font-bold' : 'text-white'}>Login</Link>
             }
             {
                 isMobile &&
-                <Link onClick={() => setIsOpen(false)} href="/landing/register" className={pathname === '/landing/register' ? 'text-blue-500' : 'text-gray-500'}>Registrati</Link>
+                <Link onClick={() => setIsOpen(false)} href="/landing/register" className={pathname === '/landing/register' ? 'text-blue-500 font-bold' : 'text-white'}>Registrati</Link>
             }
         </div>
     )

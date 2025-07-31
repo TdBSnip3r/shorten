@@ -6,7 +6,7 @@ import { ButtonVariant } from "@/enums/ShrtBtnEnum.enum"
 
 const HeaderDesktop = () => {
     return (
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-row justify-between items-center py-2">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-row justify-between items-center py-2 bg-black">
           <div className="flex-1">
             <Logo />
           </div>

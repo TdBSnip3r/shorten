@@ -46,8 +46,8 @@ export const RegisterForm = () => {
 
 
     return (
-        <div className="max-w-lg w-full bg-white shadow-2xl rounded-3xl p-8 flex flex-col gap-6 items-center justify-center border border-gray-100 mx-auto">
-            <h1 className="text-2xl font-bold">Register</h1>
+        <div className="max-w-lg w-full shadow-2xl rounded-3xl p-8 flex flex-col gap-6 items-center justify-center border border-gray-100 mx-auto">
+            <h1 className="text-2xl font-bold text-white">Register</h1>
             <img src="/logo.svg" alt="logo" className="w-24 h-24" />
             <LoginRegisterWithGoogle type="register" />
             <form
@@ -61,7 +61,7 @@ export const RegisterForm = () => {
                             type={field.type}
                             {...register(field.name as keyof RegisterForm)}
                             placeholder={field.placeholder}
-                            className="w-full max-w-md p-4 border border-gray-200 rounded-xl text-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+                            className="w-full max-w-md p-4 border border-gray-200 rounded-xl text-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition text-white"
                         />
                         {errors[field.name as keyof RegisterForm] && <p className="text-red-500 text-sm">{errors[field.name as keyof RegisterForm]?.message}</p>}
                     </div>

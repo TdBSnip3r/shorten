@@ -1,5 +1,5 @@
 const LinksHeroSection = () => (
-    <section className="w-full flex flex-col items-center justify-center py-10 bg-gradient-to-b from-blue-50 to-white rounded-xl mb-6 shadow-sm">
+    <section className="w-full flex flex-col items-center justify-center py-10 rounded-xl mb-6 shadow-sm">
       <div className="flex items-center gap-3 mb-2">
         {/* Icona SVG di un link */}
         <span className="inline-block p-2 bg-blue-100 rounded-full">
@@ -20,9 +20,9 @@ const LinksHeroSection = () => (
             />
           </svg>
         </span>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900">I tuoi link accorciati</h1>
+        <h1 className="text-3xl md:text-4xl font-extrabold text-white">I tuoi link accorciati</h1>
       </div>
-      <p className="text-gray-600 text-lg max-w-2xl text-center">
+      <p className="text-white text-lg max-w-2xl text-center">
         Qui puoi gestire, copiare, eliminare e monitorare tutti i tuoi shortlink in modo semplice e veloce.<br />
         Tieni traccia delle tue URL e condividile con un click!
       </p>

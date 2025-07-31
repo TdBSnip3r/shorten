@@ -7,12 +7,12 @@ const LinksPagination: React.FC = () => {
     const { page, limit, setPage, setLimit, totalPage } = useLinksTableStore();
 
     return (
-        <div className="bg-white px-6 py-4 border-t border-gray-200">
+        <div className="px-6 py-4 border-t border-gray-200">
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div className="flex items-center gap-3">
-                    <span className="text-sm text-gray-700">Mostra</span>
+                    <span className="text-sm text-white">Mostra</span>
                     <select
-                        className="border border-gray-300 rounded-md px-3 py-1.5 text-sm text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-150 cursor-pointer"
+                        className="border border-gray-300 rounded-md px-3 py-1.5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-150 cursor-pointer"
                         value={limit}
                         onChange={e => setLimit(Number(e.target.value))}
                     >
@@ -20,7 +20,7 @@ const LinksPagination: React.FC = () => {
                             <option key={opt} value={opt}>{opt}</option>
                         ))}
                     </select>
-                    <span className="text-sm text-gray-700">per pagina</span>
+                    <span className="text-sm text-white">per pagina</span>
                 </div>
                 
                 <div className="flex items-center gap-2">
@@ -34,7 +34,7 @@ const LinksPagination: React.FC = () => {
                         </svg>
                     </button>
                     
-                    <span className="px-3 py-1.5 text-sm font-medium text-gray-700 bg-gray-100 rounded-md">
+                    <span className="px-3 py-1.5 text-sm font-medium text-white rounded-md border border-gray-300">
                         Pagina {page} di {totalPage}
                     </span>
                     

@@ -64,14 +64,14 @@ const LoginRegisterWithGoogle: React.FC<LoginRegisterWithGoogleProps> = ({ type 
         </div>
         <button
           disabled={googleLoginMutation.isPending}
-          className={` w-full flex items-center justify-center gap-2 bg-white border border-gray-300 rounded-full shadow-sm h-[44px] min-h-[44px] px-4 font-semibold text-gray-800 text-base transition-all duration-150 hover:border-gray-400 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-60 disabled:cursor-not-allowed`}
+          className={` w-full flex items-center justify-center gap-2 border border-gray-300 rounded-full shadow-sm h-[44px] min-h-[44px] px-4 font-semibold text-gray-800 text-base transition-all duration-150 hover:border-gray-400 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-60 disabled:cursor-not-allowed`}
         >
           {googleLoginMutation.isPending ? (
-            <span className="ml-2">{"Login with Google"}...</span>
+            <span className="ml-2 text-white">{"Login with Google"}...</span>
           ) : (
             <>
               <img src="/icons/google.svg" alt="Google" width={20} height={20} className="mr-2" style={{ display: 'inline-block' }} />
-              <span>{type === 'login' ? "Login with Google" : "Register with Google"}</span>
+              <span className="text-white">{type === 'login' ? "Login with Google" : "Register with Google"}</span>
             </>
           )}
         </button>

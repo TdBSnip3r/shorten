@@ -4,7 +4,6 @@ import '../../app/globals.css'
 const CenteredLayout = ({ children }: { children: React.ReactNode }) => {
     return (
         <div className="flex flex-col items-center justify-center min-h-screen px-4 py-8">
-            <div className="main"/>
             {children}
         </div>
     )

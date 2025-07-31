@@ -2,7 +2,6 @@
 const ServicesPage = () => {
     return (
         <div className="min-h-[60vh] flex flex-col items-center justify-center bg-black py-12 px-4">
-            <div className="main"/>
             <div className="max-w-2xl w-full text-center">
                 <h1 className="text-4xl font-extrabold text-white mb-4">I nostri Servizi</h1>
                 <p className="text-lg text-white mb-8">

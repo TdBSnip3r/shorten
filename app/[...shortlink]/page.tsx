@@ -1,15 +1,16 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { resolveShortlink } from "@/backend/api/shortlinks";
 
 export default function ShortlinkCatchAllPage({ params }: { params: Promise<{ shortlink: string[] }> }) {
   const resolvedParams = React.use(params);
-
+  
   const { mutate, isPending, isError } = useMutation({
     mutationFn: (path: string) => resolveShortlink(path),
     onSuccess: (res) => {
       if (res?.url) {
+        // Reindirizza a Monetag invece che direttamente all'URL
         window.location.href = res.url;
       }
     }

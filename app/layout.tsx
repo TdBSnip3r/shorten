@@ -35,14 +35,6 @@ export default function RootLayout({
     <QueryProvider>
       <AuthProvider>
         <html lang="it">
-          <head>
-            <script 
-              src="https://fpyf8.com/88/tag.min.js" 
-              data-zone="161543" 
-              async 
-              data-cfasync="false"
-            ></script>
-          </head>
           <body
             className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white text-gray-900 min-h-screen flex flex-col`}
           >

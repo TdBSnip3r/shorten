@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { resolveShortlink } from "@/backend/api/shortlinks";
 import Script from "next/script";
+import { ShrtButton } from "@/components/common/ShrtButton/ShrtButton";
+import { ButtonVariant } from "@/enums/ShrtBtnEnum.enum";
 
 export default function ShortlinkCatchAllPage({ params }: { params: Promise<{ shortlink: string[] }> }) {
   const resolvedParams = React.use(params);
@@ -38,7 +40,6 @@ export default function ShortlinkCatchAllPage({ params }: { params: Promise<{ sh
     const timer = setInterval(() => {
       setCountdown((prev) => {
         if (prev <= 1) {
-          window.location.href = redirectUrl;
           return 0;
         }
         return prev - 1;
@@ -47,6 +48,12 @@ export default function ShortlinkCatchAllPage({ params }: { params: Promise<{ sh
 
     return () => clearInterval(timer);
   }, [redirectUrl]);
+
+  const handleRedirect = () => {
+    if (redirectUrl) {
+      window.location.href = redirectUrl;
+    }
+  };
 
   return (
     <>
@@ -63,9 +70,24 @@ export default function ShortlinkCatchAllPage({ params }: { params: Promise<{ sh
         
         {redirectUrl && (
           <div className="text-center">
-            <h1 className="text-2xl font-bold mb-4">Reindirizzamento in corso...</h1>
-            <p className="text-lg mb-2">Sarai reindirizzato tra:</p>
-            <div className="text-4xl font-bold text-blue-600">{countdown}</div>
+            {countdown > 0 ? (
+              <div>
+                <h1 className="text-2xl font-bold mb-4">Reindirizzamento in corso...</h1>
+                <p className="text-lg mb-2">Sarai reindirizzato tra:</p>
+                <div className="text-4xl font-bold text-blue-600">{countdown}</div>
+              </div>
+            ) : (
+              <>
+                <h1 className="text-2xl font-bold mb-4">Pronto per il reindirizzamento!</h1>
+                <ShrtButton 
+                  variant={ButtonVariant.PRIMARY}
+                  onClick={handleRedirect}
+                  className="px-8 py-3 text-lg"
+                >
+                  Vai alla risorsa
+                </ShrtButton>
+              </>
+            )}
           </div>
         )}
       </div>

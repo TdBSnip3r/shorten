@@ -60,6 +60,11 @@ export interface CreateShortlinkResponse {
     updatedAt: string
 }
 
+export interface SlugResponse {
+    slug: string;
+    user?: User;
+}
+
 export interface ResolveShortlinkRequest {
     shortlink: string;
 }
@@ -78,6 +83,19 @@ export interface ListLinkShortResponse {
         totalCount: number;
     };
 }
+
+export interface MySlugsRequest {
+    results: SlugResponse[];
+    pagination: {
+        currentPage: number;
+        elementsPerPage: number;
+        totalPage: number;
+        totalCount: number;
+    };
+}
+
+
+
 
 export interface DeleteShortlinkRequest {
     shortlink: string;

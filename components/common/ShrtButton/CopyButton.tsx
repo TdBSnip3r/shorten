@@ -2,15 +2,16 @@ import toast from "react-hot-toast";
 
 interface CopyButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     textToCopy: string;
+    optionalText?: string;
 }
 
-const CopyButton = ({ textToCopy, ...props }: CopyButtonProps) => {
+const CopyButton = ({ textToCopy, optionalText, ...props }: CopyButtonProps) => {
     return (
         <button
             {...props}
             onClick={() => {
                 navigator.clipboard.writeText(textToCopy)
-                toast.success("Link copiato")
+                toast.success(optionalText || "Link copiato")
             }}
             className="p-2 text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded-md transition-all duration-150 cursor-pointer"
             title="Copia link"

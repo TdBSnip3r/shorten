@@ -32,6 +32,7 @@ const EditPricePopupRequest = ({ slug,isOpen,onClose,onEditPriceDone,onEditPrice
     onSuccess: (data: SetPriceResponse) => {
       onEditPriceDone?.(slug.slug, data.price);
       queryClient.invalidateQueries({ queryKey: ['mySlugs'] });
+      queryClient.invalidateQueries({ queryKey: ['findSlug'] });
     },
     onError: (error) => {
       onEditPriceFailed?.(slug.slug, error.message);

@@ -37,6 +37,7 @@ const SellPopupRequest = ({
     onSuccess: (data: SetPriceResponse) => {
       onSellRequestDone?.(slug, data.price);
       queryClient.invalidateQueries({ queryKey: ['mySlugs'] });
+      queryClient.invalidateQueries({ queryKey: ['findSlug'] });
     },
     onError: (error) => {
       onSellRequestFailed?.(slug, error.message);

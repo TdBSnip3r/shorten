@@ -14,6 +14,7 @@ const AuthNavigation : React.FC<AuthNavigationProps> = ({ isMobile = false }) =>
         <div className={`flex  gap-4 ${isMobile ? 'flex-col' : 'flex-row'}`}>
           <Link onClick={() => setIsOpen(false)} href="/dashboard" className={pathname === '/dashboard' ? 'text-blue-500 font-bold' : 'text-white'}>Dashboard</Link>
           <Link onClick={() => setIsOpen(false)} href="/dashboard/links" className={pathname === '/dashboard/links' ? 'text-blue-500 font-bold' : 'text-white'}>Links</Link>
+          <Link onClick={() => setIsOpen(false)} href="/dashboard/slugs" className={pathname === '/dashboard/slugs' ? 'text-blue-500 font-bold' : 'text-white'}>Slugs</Link>
           {
             isMobile &&
             <p className="text-white text cursor-pointer" onClick={logout}>Logout</p>

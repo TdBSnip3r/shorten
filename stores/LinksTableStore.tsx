@@ -11,7 +11,7 @@ interface LinksTableStore {
 
 export const useLinksTableStore = create<LinksTableStore>((set) => ({
   page: 1,
-  limit: 10,
+  limit: 5,
   totalPage: -1,
   setPage: (page) => set({ page }),
   setLimit: (limit) => {

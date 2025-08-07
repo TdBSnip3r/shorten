@@ -63,6 +63,7 @@ export interface CreateShortlinkResponse {
 export interface SlugResponse {
     slug: string;
     user?: User;
+    sellPrice: number;
 }
 
 export interface ResolveShortlinkRequest {
@@ -91,6 +92,16 @@ export interface MySlugsRequest {
         elementsPerPage: number;
         totalPage: number;
         totalCount: number;
+    };
+}
+
+export interface FindSlugRequest {
+    message: string;
+    slug: {
+        slug: string;
+        isAvailable: boolean;
+        isBuyable: boolean;
+        price: number;
     };
 }
 
@@ -130,4 +141,15 @@ export interface GoogleLoginResponse {
     message: string;
     user: User;
     access_token: string;
+}
+
+export interface SetPriceRequest {
+    slug: string;
+    price: number;
+}
+
+export interface SetPriceResponse {
+    message: string;
+    slug: string;
+    price: number;
 }

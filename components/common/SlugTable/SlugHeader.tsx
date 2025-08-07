@@ -8,6 +8,9 @@ const SlugHeader: React.FC = () => {
           Nome Slug
         </th>
         <th className="px-6 py-4 text-center text-sm font-semibold text-gray-700 uppercase tracking-wider text-white">
+          Prezzo di vendita
+        </th>
+        <th className="px-6 py-4 text-center text-sm font-semibold text-gray-700 uppercase tracking-wider text-white">
           Azioni
         </th>
       </tr>

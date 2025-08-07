@@ -11,7 +11,7 @@ interface SlugTableStore {
 
 export const useSlugTableStore = create<SlugTableStore>((set) => ({
   page: 1,
-  limit: 10,
+  limit: 5,
   totalPage: -1,
   setPage: (page) => set({ page }),
   setLimit: (limit) => {

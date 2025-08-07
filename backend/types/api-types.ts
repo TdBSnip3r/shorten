@@ -99,13 +99,12 @@ export interface FindSlugRequest {
     message: string;
     slug: {
         slug: string;
-        isAvailable: boolean;
+        isUsed: boolean;
         isBuyable: boolean;
         price: number;
+        isYour: boolean;
     };
 }
-
-
 
 
 export interface DeleteShortlinkRequest {

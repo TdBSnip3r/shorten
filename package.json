@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "go-live": "git pull && pnpm install && pnpm build && pm2 restart 0",
     "build": "next build && node scripts/copy-sw.js",
     "start": "next start",
     "lint": "next lint"

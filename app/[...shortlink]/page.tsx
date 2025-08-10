@@ -65,20 +65,20 @@ export default function ShortlinkCatchAllPage({ params }: { params: Promise<{ sh
       />
       
       <div className="flex flex-col items-center justify-center min-h-screen">
-        {isPending && <h1 className="text-2xl font-bold">Sto risolvendo il link...</h1>}
+        {isPending && <h1 className="text-2xl font-bold text-white">Sto risolvendo il link...</h1>}
         {isError && <h2 className="text-red-500 text-lg mt-4">Link non trovato</h2>}
         
         {redirectUrl && (
           <div className="text-center">
             {countdown > 0 ? (
               <div>
-                <h1 className="text-2xl font-bold mb-4">Reindirizzamento in corso...</h1>
-                <p className="text-lg mb-2">Sarai reindirizzato tra:</p>
-                <div className="text-4xl font-bold text-blue-600">{countdown}</div>
+                <h1 className="text-2xl font-bold mb-4 text-white">Reindirizzamento in corso...</h1>
+                <p className="text-lg mb-2 text-white">Sarai reindirizzato tra:</p>
+                <div className="text-4xl font-bold text-white">{countdown}</div>
               </div>
             ) : (
               <>
-                <h1 className="text-2xl font-bold mb-4">Pronto per il reindirizzamento!</h1>
+                <h1 className="text-2xl font-bold mb-4 text-white">Pronto per il reindirizzamento!</h1>
                 <ShrtButton 
                   variant={ButtonVariant.PRIMARY}
                   onClick={handleRedirect}

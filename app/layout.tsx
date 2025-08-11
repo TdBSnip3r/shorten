@@ -17,8 +17,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Shorten - Shorten your links",
-  description: "The easiest and fastest platform to shorten your links",
+  title: "Foll-it",
+  description: "Tunneling",
   icons: {
     icon: '/logo.svg',
     shortcut: '/logo.svg',
